@@ -5,4 +5,4 @@ up:
 down:
 	docker-compose down
 exec-nest:
-	docker-compose exec nest sh
+	docker-compose exec nest bash
