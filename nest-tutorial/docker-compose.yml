@@ -6,5 +6,6 @@ services:
     container_name: node-docker
     ports:
       - 8080:3000
+    tty: true
     volumes:
       - ./src/:/var/www/html
