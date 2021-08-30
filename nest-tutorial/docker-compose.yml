@@ -5,7 +5,7 @@ services:
     build: docker
     container_name: nest-docker
     ports:
-      - 8080:3000
+      - 3000:3000
     tty: true
     volumes:
       - ./src/:/var/www/html
