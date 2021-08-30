@@ -1,9 +1,9 @@
 version: '3'
 
 services:
-  node:
+  nest:
     build: docker
-    container_name: node-docker
+    container_name: nest-docker
     ports:
       - 8080:3000
     tty: true
