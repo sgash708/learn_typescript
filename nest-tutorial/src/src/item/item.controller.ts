@@ -4,11 +4,12 @@ import {
     Post,
     Body,
     Param,
-    Put
+    Put,
+    Delete
 } from '@nestjs/common';
 import { ItemService } from './item.service';
 import { Item } from '../entities/item.entity';
-import { CreateItemDTO, UpdateItemDTO } from './item.dto';
+import { CreateItemDTO, DeleteItemDTO, UpdateItemDTO } from './item.dto';
 import { InsertResult, UpdateResult, DeleteResult } from "typeorm";
 
 @Controller('item')
@@ -46,5 +47,31 @@ export class ItemController {
         };
 
         return await this.service.update(Number(id), newData);
+    }
+
+    /**
+     * delete
+     * パスワードなし削除
+     *
+     * @param id 
+     * @returns 
+     */
+    @Delete(':id/delete')
+    async delete(@Param('id') id: string): Promise<DeleteResult> {
+        return await this.service.delete(Number(id));
+    }
+
+    /**
+     * deleteItem
+     * パスワードあり削除
+     *
+     * @param id 
+     * @param deleteItem 
+     * @returns Promise<DeleteResult>
+     */
+    @Post(':id/delete')
+    async deleteItem(@Param('id') id: string, @Body() deleteItem: DeleteItemDTO)
+    : Promise<DeleteResult> {
+        return await this.service.deleteByPassword(Number(id), deleteItem.deletePassword);
     }
 }
