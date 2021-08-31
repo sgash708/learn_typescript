@@ -5,7 +5,9 @@ import {
     Body,
     Param,
     Put,
-    Delete
+    Delete,
+    HttpException,
+    HttpStatus
 } from '@nestjs/common';
 import { ItemService } from './item.service';
 import { Item } from '../entities/item.entity';
@@ -72,6 +74,40 @@ export class ItemController {
     @Post(':id/delete')
     async deleteItem(@Param('id') id: string, @Body() deleteItem: DeleteItemDTO)
     : Promise<DeleteResult> {
+        const item = await this.service.find(Number(id));
+        // 存在しないアイテム
+        if (!item) {
+            throw new HttpException(
+                {
+                    status: HttpStatus.NOT_FOUND,
+                    error: `Missing item(id: ${id})`,
+                },
+                404,
+            );
+        }
+        try {
+            await this.service.deleteByPassword(Number(id), deleteItem.deletePassword);
+        } catch (e) {
+            // パスワード間違い
+            if (e.message === 'Incorrect password') {
+                throw new HttpException(
+                    {
+                        status: HttpStatus.FORBIDDEN,
+                        error: 'Incorrect password'
+                    },
+                    403
+                );
+                
+            }
+            throw new HttpException(
+                {
+                    status: HttpStatus.FORBIDDEN,
+                    error: 'Internal server error'
+                },
+                500
+            );
+            
+        }
         return await this.service.deleteByPassword(Number(id), deleteItem.deletePassword);
     }
 }
