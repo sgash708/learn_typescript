@@ -9,3 +9,18 @@ services:
     tty: true
     volumes:
       - ./src/:/var/www/html
+    # REF: https://qiita.com/Gma_Gama/items/407ad2f121f6d01a6361
+    # depends_on:
+    #   - db
+  # db:
+  #   container_name: nest-db
+  #   image: mysql:5.migs/mysql-5.7
+  #   restart: always
+  #   ports:
+  #     - 3310:3306
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: root
+  #     MYSQL_DATABASE: database
+  #     MYSQL_USER: root
+  #     MYSQL_PASSWORD: root
+
