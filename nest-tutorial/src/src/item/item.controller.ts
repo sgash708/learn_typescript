@@ -72,8 +72,7 @@ export class ItemController {
      * @returns Promise<DeleteResult>
      */
     @Post(':id/delete')
-    async deleteItem(@Param('id') id: string, @Body() deleteItem: DeleteItemDTO)
-    : Promise<DeleteResult> {
+    async deleteItem(@Param('id') id: string, @Body() deleteItem: DeleteItemDTO) {
         const item = await this.service.find(Number(id));
         // 存在しないアイテム
         if (!item) {
@@ -108,6 +107,5 @@ export class ItemController {
             );
             
         }
-        return await this.service.deleteByPassword(Number(id), deleteItem.deletePassword);
     }
 }
