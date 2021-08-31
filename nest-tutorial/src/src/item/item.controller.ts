@@ -27,10 +27,10 @@ export class ItemController {
         return await this.service.create(item);
     }
 
+    // ':id'は、'http://localhost:3000/item/1'のようにアクセスさせる
     // getItem ID指定して取得
     @Get(':id')
     async getItem(@Param('id') id: string): Promise<Item> {
         return await this.service.find(Number(id));
     }
-
 }
