@@ -27,8 +27,6 @@ npx typeorm migration:run
 ```
 
 # ファイル作成
-## module
-
 ```bash
 # moduleクラス
 # ここで作成したItemModuleは自動的に、<code>app.module.ts</code>に読み込む
