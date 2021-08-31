@@ -16,6 +16,10 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
-  }
+    "noFallthroughCasesInSwitch": false,
+  },
+  // https://www.fixes.pub/program/623736.html
+  "include": [
+    "src/**/*.ts"
+  ]
 }
