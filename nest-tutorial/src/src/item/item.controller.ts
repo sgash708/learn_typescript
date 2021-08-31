@@ -3,11 +3,12 @@ import {
     Get,
     Post,
     Body,
-    Param
+    Param,
+    Put
 } from '@nestjs/common';
 import { ItemService } from './item.service';
 import { Item } from '../entities/item.entity';
-import { CreateItemDTO } from './item.dto';
+import { CreateItemDTO, UpdateItemDTO } from './item.dto';
 import { InsertResult, UpdateResult, DeleteResult } from "typeorm";
 
 @Controller('item')
@@ -32,5 +33,18 @@ export class ItemController {
     @Get(':id')
     async getItem(@Param('id') id: string): Promise<Item> {
         return await this.service.find(Number(id));
+    }
+
+    @Put(':id/update')
+    async update(
+        @Param('id') id: string,
+        @Body() itemData: UpdateItemDTO,
+    ): Promise<UpdateResult> {
+        const newData = !itemData.isDone ? itemData : {
+            ...itemData,
+            ...{ isDone: itemData.isDone.toLowerCase() === 'true' },
+        };
+
+        return await this.service.update(Number(id), newData);
     }
 }
