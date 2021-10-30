@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  ts:
+    build: .
+    container_name: ts-docker
+    tty: true
+    volumes:
+      - ./:/var/www/html
