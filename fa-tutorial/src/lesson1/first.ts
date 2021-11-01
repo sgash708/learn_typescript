@@ -5,5 +5,5 @@ const personName: string = 'hogetaro';
  * 
  * 実行するには、
  * npx ts-node first.ts
-*/
+ */
 console.log(`Hello ${personName}`);
