@@ -14,9 +14,9 @@ let animalType: string;
 animalType = "";
 
 if (mode === "line") {
-    animalType = "bear";
+  animalType = "bear";
 } else if (mode === "twitter") {
-    animalType = "bird";
+  animalType = "bird";
 }
 console.log(animalType);
 
@@ -30,3 +30,26 @@ let title: string = "タイトル";
 let mail;
 // 明示的にanyを指定することもできる
 let email: any;
+
+/**
+ * 弱い型定義
+ * → PHPと同じ
+ */
+// union type
+let birthYear: number | string;
+birthYear = 1000;
+birthYear = "hoge";
+// nullは定義していないのでエラーになる
+// birthYear = null;
+
+// 特定の値のみを、型として許可することもできる！
+let ramen: "味噌" | "醤油";
+// 型 '"豚骨"' を型 '"味噌" | "醤油"' に割り当てることはできません。
+// ramen = "豚骨";
+let likeNumber: 1 | 3 | 5;
+// 型 '2' を型 '1 | 3 | 5' に割り当てることはできません。
+// likeNumber = 2;
+
+// 同様に、型と値も混ぜ合わせることができる
+let nengo: number | "昭和" | "平成" | "令和"
+nengo = "昭和";
