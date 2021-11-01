@@ -74,3 +74,25 @@ function letFunc(): void {
   // let v: string = "巻き上げ";
 }
 letFunc();
+
+/**
+ * 変数のスコープ
+ */
+// varの問題点は、どこからでもアクセスできてしまうこと
+for (var i = 0; i < 10; i++) {
+}
+console.log(i); // 10
+for (let index = 0; index < 10; index++) {
+}
+// 名前 'index' が見つかりません。
+// console.log(index);
+
+function code(): void {
+  {
+    const store = "店舗";
+    // ここでのみ有効
+    console.log(store);
+  }
+  const storeName = "店舗名";
+}
+code();
