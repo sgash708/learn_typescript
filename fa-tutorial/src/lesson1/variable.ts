@@ -53,3 +53,24 @@ let likeNumber: 1 | 3 | 5;
 // 同様に、型と値も混ぜ合わせることができる
 let nengo: number | "昭和" | "平成" | "令和"
 nengo = "昭和";
+
+/**
+ * 変数の巻き上げ(hoisting)
+ * REF: https://analogic.jp/hoisting/
+ */
+function oldFunc(): void {
+  // 変数 'v' は割り当てられる前に使用されています。
+  // undefined
+
+  // console.log(`巻き上げテスト${v}`);
+  // var v: string = "バリュー";
+}
+oldFunc();
+function letFunc(): void {
+  // ブロック スコープの変数 'v' が、宣言の前に使用されています。
+  // error
+
+  // console.log(`巻き上げテスト${v}`);
+  // let v: string = "巻き上げ";
+}
+letFunc();
