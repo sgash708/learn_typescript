@@ -61,6 +61,18 @@ console.log(0xf7);  // 0x => hexial
 // REF: http://cute.sh/solairo/binary/02.html
 console.log(0o1000);
 
+// キャストについて
+const year: number = 2021;
+console.log(year.toString());
+console.log(year.toString(2)); // 2進数変換(最大36進数まで)
+console.log(Boolean(year));    // bool変換なので、0以外はtrue
+
+// REF: https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/parseInt
+// 8進数に変換されるので、511が出力される
+console.log(parseInt("777", 8));
+
+console.log(Number(true)); // 1
+
 /**
  * stringリテラル
  */
