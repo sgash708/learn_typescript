@@ -73,7 +73,7 @@ console.log(parseInt("777", 8));
 
 console.log(Number(true)); // 1
 
-// numberは2進数で、 0.3のように表示ができないので「decimal.js」を使用すること
+// numberは2進数で、0.3のように表示ができないので"decimal.js"を使用すること
 const a = 0.1;
 const b = 0.2;
 console.log(a + b); // 0.30000000000000004
