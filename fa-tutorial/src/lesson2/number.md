@@ -31,3 +31,29 @@ https://future-architect.github.io/typescript-guide/primitive.html
 ### bigint
 使用方法には、`"target": "esnext"`とすることで使用可能になる。
 基本的には使わない。
+
+# 小数点の計算誤差について
+js/tsは、IEEE754(浮動小数点数演算標準)に沿った実装がされている。
+`0.1 + 0.2 = 0.30000000000000004`のように小数点がずれる
+## 対応
+### ①10^Nで整数にする
+10の倍数をかけることで整数に変換する試み
+しかし、整数値に直す処理を挟んでしまうと正しい数値を導くことができない。
+
+```javascript
+// 成功パターン
+const value1: number = 80.7;
+const value2: number = 10.1;
+let result: number;
+
+result = ((value1 *10) - (value2 * 10)) / 10;
+
+// 失敗パターン
+const value3: number = 20.42;
+const value4: number = 10.1;
+
+result = ((value3 *100) - (value4 * 100)) / 100;
+```
+
+### ①10^Nで整数にする
+### ①10^Nで整数にする
