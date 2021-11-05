@@ -98,3 +98,6 @@ console.log(0.1, 0.2);
 
 ### ③ライブラリの使用
 `decimal.js`の使用
+
+## REF
+https://qiita.com/k_moto/items/0b576a3351b77fb0aa98
