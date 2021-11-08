@@ -116,6 +116,11 @@ console.log(Math.min(1, 100, 100000));
 const minNumberArr: Array<number> = [11, 100, 30000];
 console.log(Math.min(...minNumberArr));
 
+// 0以上1未満の疑似乱数を返す。
+console.log(Math.random());
+// nodeでは、暗号的乱数を返す。
+// const cryptStr = crypto.randomBytes(20).toString('hex');
+
 /**
  * stringリテラル
  */
