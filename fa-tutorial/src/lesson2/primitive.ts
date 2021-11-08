@@ -102,6 +102,20 @@ console.log(~~a);
 console.log(a | 0);
 
 // 特殊な数値も存在している(Infinity/NaN)があるが、場合によっては攻撃対策にチェックするのも必要。
+
+// Mathオブジェクト
+// "max"は最大値を返す。また、配列にも使うことができる。
+console.log(Math.max(1, 100, 100000));
+// 配列内の数値の最大値を取得
+const maxNumberArr: Array<number> = [1, 100, 30000];
+console.log(Math.max(...maxNumberArr));
+
+// "mins"は最小値を返す。また、配列にも使うことができる。
+console.log(Math.min(1, 100, 100000));
+// 配列内の数値の最大値を取得
+const minNumberArr: Array<number> = [11, 100, 30000];
+console.log(Math.min(...minNumberArr));
+
 /**
  * stringリテラル
  */
