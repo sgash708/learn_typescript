@@ -121,6 +121,21 @@ console.log(Math.random());
 // nodeでは、暗号的乱数を返す。
 // const cryptStr = crypto.randomBytes(20).toString('hex');
 
+// aの絶対値を返す
+console.log(Math.abs(a)); // 0.1
+// a以上の最小の整数を返す
+console.log(Math.ceil(a)); // 1
+// a以下の最大の整数を返す
+console.log(Math.floor(a)); // 0
+// aに近似の単精度浮動小数点数を返す
+console.log(Math.fround(a)); // 0.10000000149011612
+// aを四捨五入して近似整数整数を返す
+console.log(Math.round(a)); // 0
+// aが正なら1、負なら-1、0なら0を返す
+console.log(Math.sign(a)); // 1
+// 小数点以下切り捨て
+console.log(Math.trunc(a)); // 0
+
 /**
  * stringリテラル
  */
