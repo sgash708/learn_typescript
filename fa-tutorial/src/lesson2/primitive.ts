@@ -116,6 +116,7 @@ console.log(Math.min(1, 100, 100000));
 const minNumberArr: Array<number> = [11, 100, 30000];
 console.log(Math.min(...minNumberArr));
 
+/** 整数値変換 */
 // 0以上1未満の疑似乱数を返す。
 console.log(Math.random());
 // nodeでは、暗号的乱数を返す。
@@ -135,6 +136,12 @@ console.log(Math.round(a)); // 0
 console.log(Math.sign(a)); // 1
 // 小数点以下切り捨て
 console.log(Math.trunc(a)); // 0
+
+/** 32ビット整数 */
+// 2進数32ビット整数値で表した数の先頭の0の個数を返す
+console.log(Math.clz32(a)); // 32
+// 32ビット同士の整数の乗算の結果を返す。超えた範囲は切り捨てられる。主にビット演算と一緒に使う。
+console.log(Math.imul(a, b)); // 0
 
 /**
  * stringリテラル
