@@ -155,6 +155,35 @@ console.log(Math.hypot(a, b));
 // aのルート
 console.log(Math.sqrt(a));
 
+/** 対数 */
+/**
+ * 円周率や三角関数
+ * 引数や返り値で角度を取るものはすべてラジアン
+ * → 度 （°）で数値を持っている場合は * Math.PI / 180 でラジアンに変換すること
+ */
+// 自然対数の底（ネイピア数）を表す定数
+console.log(Math.E);
+// 10の自然対数を表す定数
+console.log(Math.LN10);
+// 2の自然対数を表す定数
+console.log(Math.LN2);
+// 10を底としたeの対数を表す定数
+console.log(Math.LOG10E);
+// 2を底としたeの対数を表す定数
+console.log(Math.LOG2E);
+// Math.E ** a を返す。
+console.log(Math.exp(a));
+// exp(a) から1を引いた値を返す
+console.log(Math.expm1(a));
+// aの自然対数を返す
+console.log(Math.log(a));
+// 1 + a の自然対数を返す
+console.log(Math.log1p(a));
+// aの10を底とした対数を返す
+console.log(Math.log10(a));
+// aの2を底とした対数を返す
+console.log(Math.log2(a));
+
 /**
  * stringリテラル
  */
