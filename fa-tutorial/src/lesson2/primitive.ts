@@ -143,6 +143,18 @@ console.log(Math.clz32(a)); // 32
 // 32ビット同士の整数の乗算の結果を返す。超えた範囲は切り捨てられる。主にビット演算と一緒に使う。
 console.log(Math.imul(a, b)); // 0
 
+/** ルート(平方根) */
+// √1/2
+console.log(Math.SQRT1_2);
+// √2
+console.log(Math.SQRT2);
+// aの立法根
+console.log(Math.cbrt(a));
+// 引数の数値の二乗和のルートを返す
+console.log(Math.hypot(a, b));
+// aのルート
+console.log(Math.sqrt(a));
+
 /**
  * stringリテラル
  */
