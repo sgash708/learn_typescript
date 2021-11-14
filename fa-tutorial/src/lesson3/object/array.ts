@@ -51,7 +51,7 @@ const smalls = [
 const smallCar: string = smalls[1];
 const smallAnimal: string = smalls[0];
 // 旧: 2番目以降の要素の取り出し
-const oldOther: Array<string> = smalls.slice(1);
+const oldOther: string[] = smalls.slice(1);
 console.log(oldOther);
 
 // 新: まとめて取り出し
@@ -61,3 +61,39 @@ const [, ...newOther]: string[] = smalls;
 // 3番目以降の取り出し
 const [, , ...threeElementOther]: string[] = smalls;
 console.log(newOther, threeElementOther);
+
+/** 配列の要素の存在チェック */
+const places: string[] = ['p1', 'p2', 'p3'];
+// 旧
+console.log(places[0] === 'p1');
+// 新
+console.log(places.includes('p1'));
+
+/**
+ * 配列の加工
+ * → 他言語の習熟者がJavaScriptを学ぶときにつまづくポイント
+ *  → 旧: splice()という要素の削除と追加をパズルのように行い配列を加工していた。
+ *   → 配列のメソッドによっては、配列そのものを変更したり、新しい配列を返したりが統一されていないのも難解さを増やしていた。
+ *
+ *  → 新: スプレッド構文を使うと標準文法の範囲内でこのような加工ができる。
+ *   → さきほどのスプレッド構文は左辺用だったが、右辺で配列の中身を展開する。
+ *   → splice()は対象の配列を変更するがスプレッド構文を使うと、この方針に沿ったコーディングがしやすくなる。
+ *   → 配列のコピーも簡単にできます。
+ */
+const smallOnes: string[] = ["小動物", "小型車", "小論文"];
+const others: string[] = ["小市民", "小田急"];
+
+// 旧: 3番目の要素を削除し1つの要素を追加
+// → 他の配列と結合
+smalls.splice(2, 1, "小心者"); // [ '小動物', '小型車', '小心者' ]
+const oldSmallThings: string[] = smalls.concat(others); // [ '小動物', '小型車', '小心者', '小市民', '小田急' ]
+// 新: スプレッド構文で同じ操作をする
+// 先頭要素の削除の場合、分割代入を使えばslice()も消せる
+const newSmallThings: string[] = [...smalls.slice(0, 2), "小心者", ...others] // [ '小動物', '小型車', '小心者', '小市民', '小田急' ]
+console.log(oldSmallThings, newSmallThings);
+
+// 旧: 配列のコピー
+const oldCopy: string[] = Array.from(smalls);
+// 新: スプレッド構文で配列のコピー
+const newCopy: string[] = [...smalls];
+console.log(oldCopy, newCopy);
