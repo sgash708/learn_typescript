@@ -97,3 +97,36 @@ const oldCopy: string[] = Array.from(smalls);
 // 新: スプレッド構文で配列のコピー
 const newCopy: string[] = [...smalls];
 console.log(oldCopy, newCopy);
+
+/** 
+ * 配列のソート
+ * → インプレースで、その配列を変更する。
+ * → ソートをそのまま実行すると中の要素をすべて文字列化した上で、辞書順でソートされる。
+ * 
+ * 変数.sort([compareFunction])
+ * ソート順を定義する関数を指定する。
+ * 省略された場合、配列の各要素は文字列に変換され各文字の Unicode のコードポイント順に従ってソートされます。
+ */
+const numbers: number[] = [30, 1, 200, 50];
+// numbers.sort();
+// console.log(numbers); // [1, 200, 30, 50]
+
+// Number
+console.log(numbers.sort((n1: number, n2: number) => {
+  console.log(n1, n2);
+  return n1 - n2;
+}));
+// REF: https://stackoverflow.com/questions/21687907/typescript-sorting-an-array
+// REF: https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+
+/**
+ * numbers.sort((n1: number, n2: number) => n1 - n2));
+ * sortの仕組み
+ * [30, 1, 200]
+ *
+ * 1. n1 === 1 || n2 === 30 // -29 [1 ,30, 200, 50]
+ * 2. n1 === 200 || n2 === 1 // 199 [1, 30, 200, 50]
+ * 3. n1 === 200 || n2 === 30 // 170 [1, 30, 200, 50]
+ * 4. n1 === 50 || n2 === 30 // 20 [1, 30, 200, 50]
+ * 5. n1 === 50 || n2 === 200 // -150 [1, 30, 50, 200]
+ */
