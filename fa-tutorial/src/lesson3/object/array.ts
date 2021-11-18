@@ -113,16 +113,15 @@ const numbers: number[] = [30, 1, 200, 50];
 
 // Number
 console.log(numbers.sort((n1: number, n2: number) => {
-  console.log(n1, n2);
   return n1 - n2;
 }));
 // REF: https://stackoverflow.com/questions/21687907/typescript-sorting-an-array
 // REF: https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
 
 /**
- * numbers.sort((n1: number, n2: number) => n1 - n2));
+ * numbers.sort((n1: number, n2: number) => n1 - n2);
  * sortの仕組み
- * [30, 1, 200]
+ * [30, 1, 200, 50]
  *
  * 1. n1 === 1 || n2 === 30 // -29 [1 ,30, 200, 50]
  * 2. n1 === 200 || n2 === 1 // 199 [1, 30, 200, 50]

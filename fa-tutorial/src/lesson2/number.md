@@ -64,10 +64,11 @@ function getDotPosition(value: number): number {
   const strVal: string = String(value);
   let dotPosition: number = 0;
 
+  let indexNum: number = strVal.lastIndexOf('.')
   //　小数点存在確認
-  if(strVal.lastIndexOf('.') >= 0){
+  if( indexNum >= 0){
     // 小数点の位置取得
-    dotPosition = (strVal.length - 1) - strVal.lastIndexOf('.');
+    dotPosition = (strVal.length - 1) - indexNum;
   }
 
   return dotPosition;
@@ -83,8 +84,8 @@ function calcSubtract(value1: number, value2: number) {
   const max: number = Math.max(dotPosition1, dotPosition2);
 
   // 大きい方に小数の桁を合わせて文字列化、小数点を除いて整数の値にする
-  const intValue1: number = parseInt((value1.toFixed(max) + '').replace('.', ''));
-  const intValue2: number = parseInt((value2.toFixed(max) + '').replace('.', ''));
+  const intValue1: number = parseInt((value1.toFixed(max)).replace('.', ''));
+  const intValue2: number = parseInt((value2.toFixed(max)).replace('.', ''));
 
   // 10^N の値を計算
   const power: number = Math.pow(10, max);
@@ -93,7 +94,7 @@ function calcSubtract(value1: number, value2: number) {
   return (intValue1 - intValue2) / power;
 }
 
-console.log(0.1, 0.2);
+console.log(calcSubtract(0.1, 0.2));
 ```
 
 ### ③ライブラリの使用
