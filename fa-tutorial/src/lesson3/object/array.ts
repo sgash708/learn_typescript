@@ -108,6 +108,8 @@ console.log(oldCopy, newCopy);
  * 省略された場合、配列の各要素は文字列に変換され各文字の Unicode のコードポイント順に従ってソートされます。
  */
 const numbers: number[] = [30, 1, 200, 50];
+
+// 失敗例
 // numbers.sort();
 // console.log(numbers); // [1, 200, 30, 50]
 
