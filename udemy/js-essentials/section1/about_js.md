@@ -20,6 +20,7 @@ ex. FireFox(SpiderMonkey)/Chrome(V8-engine)/Safari(NightPro)/IE(Chakura)
 # 実行環境
 ## JITコンパイラ
 即時実行して、可読可能な形に変換する。
+`js -> jitコンパイラ -> 機械語`
 
 # JSコンソールについて
 昔は`textインターフェイス`として黒い画面を使用して、GUIレスな開発をしていた。
@@ -46,3 +47,13 @@ functionsとobjectを含んでいるもの
 # なぜオブジェクトは重要か
 何をすべきか、何ができるかなど関係性を表している。
 日常生活においても、そのものでできることや性質を利用して生活をしている。
+
+# 文法(syntax)について
+API(`application programming interface`)のこと。
+jQueryもAPIであり使えるオブジェクトが存在している。
+jQueryは、nativeAPIとしてjs内で起動する。API extensionとして使われている。
+
+JITコンパイラは`native API`あるいは、予約関数やオブジェクトとしての箱である。
+
+1つのブラウザウインドウ/ページには、自身の`window object`と固有の`window object`が存在している。
+また、jQueryの場合には`jsのnativeAPI`と`jQueryのAPI`が存在している。
